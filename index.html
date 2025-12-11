@@ -23,15 +23,12 @@
       --shadow-soft: 0 14px 45px rgba(0,0,0,0.6);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text","Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #151731 0, #02030b 48%, #020109 100%);
       color: var(--text);
       display: flex;
@@ -39,449 +36,333 @@
       padding: 20px;
     }
 
-    .app {
-      width: 100%;
-      max-width: 1220px;
-    }
+    .app { width: 100%; max-width: 1220px; }
 
-    header {
-      margin-bottom: 18px;
-    }
+    header { margin-bottom: 12px; }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-soft);
+      display:inline-flex;align-items:center;gap:6px;
+      padding:4px 10px;border-radius:999px;
+      background:rgba(255,255,255,0.03);
+      border:1px solid rgba(255,255,255,0.05);
+      font-size:11px;text-transform:uppercase;letter-spacing:0.08em;
+      color:var(--text-soft);
     }
 
     .badge-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px rgba(76, 111, 255, 0.9);
+      width:6px;height:6px;border-radius:50%;
+      background:var(--accent);box-shadow:0 0 8px rgba(76,111,255,0.9);
     }
 
     h1 {
-      font-size: 28px;
-      margin: 10px 0 4px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-size:28px;margin:10px 0 4px;
+      display:flex;align-items:center;gap:10px;
     }
 
     h1 span.logo-pill {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 26px;
-      height: 26px;
-      border-radius: 9px;
-      background: linear-gradient(135deg, #ff4b91, #ffbf3c);
-      font-size: 15px;
+      display:inline-flex;align-items:center;justify-content:center;
+      width:26px;height:26px;border-radius:9px;
+      background:linear-gradient(135deg,#ff4b91,#ffbf3c);
+      font-size:15px;
     }
 
-    header p {
-      margin: 0;
-      color: var(--text-soft);
-      font-size: 14px;
+    header p { margin:0;color:var(--text-soft);font-size:14px; }
+
+    /* NAV TABS */
+    .nav-tabs {
+      display:flex;
+      gap:6px;
+      margin-bottom:14px;
+      border-radius:999px;
+      padding:3px;
+      background:rgba(7,8,20,0.9);
+      border:1px solid rgba(255,255,255,0.06);
     }
 
+    .nav-tab {
+      flex:1 1 0;
+      border:none;
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:13px;
+      cursor:pointer;
+      background:transparent;
+      color:var(--text-soft);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      transition:background 0.15s ease,color 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
+    }
+
+    .nav-tab span.icon {
+      font-size:14px;
+    }
+
+    .nav-tab-active {
+      background:var(--accent);
+      color:#fff;
+      box-shadow:0 12px 28px rgba(76,111,255,0.6);
+      transform:translateY(-1px);
+    }
+
+    .nav-tab-active span.sub {
+      opacity:0.95;
+    }
+
+    .nav-tab span.sub {
+      font-size:11px;
+      opacity:0.7;
+    }
+
+    /* LAYOUT GENERAL */
     .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
-      gap: 18px;
+      display:grid;
+      grid-template-columns:minmax(0, 340px) minmax(0, 1fr);
+      gap:18px;
     }
 
     .panel {
-      background: radial-gradient(circle at 0 0, #252a4d 0, #111323 32%, #080918 100%);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      padding: 16px 16px 14px;
-      position: relative;
-      overflow: hidden;
+      background:radial-gradient(circle at 0 0,#252a4d 0,#111323 32%,#080918 100%);
+      border-radius:var(--radius-lg);
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(255,255,255,0.04);
+      padding:16px 16px 14px;
+      position:relative;
+      overflow:hidden;
     }
 
     .panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.5;
-      background: radial-gradient(circle at top left, rgba(76, 111, 255, 0.16), transparent 55%);
+      content:"";position:absolute;inset:0;pointer-events:none;opacity:0.5;
+      background:radial-gradient(circle at top left,rgba(76,111,255,0.16),transparent 55%);
     }
 
-    .panel > * {
-      position: relative;
-      z-index: 1;
-    }
+    .panel > * { position:relative;z-index:1; }
 
     .panel-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 12px;
+      display:flex;justify-content:space-between;align-items:baseline;
+      margin-bottom:12px;
     }
 
-    .panel-header h2 {
-      margin: 0;
-      font-size: 16px;
-    }
+    .panel-header h2 { margin:0;font-size:16px; }
+    .panel-header span.sub { font-size:12px;color:var(--text-soft); }
 
-    .panel-header span.sub {
-      font-size: 12px;
-      color: var(--text-soft);
-    }
-
+    /* FORM */
     form label {
-      display: block;
-      font-size: 12px;
-      margin-bottom: 4px;
-      color: var(--text-soft);
+      display:block;font-size:12px;margin-bottom:4px;color:var(--text-soft);
     }
 
     .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px 12px;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px 12px;
     }
 
-    .form-row-full {
-      grid-column: 1 / -1;
+    .form-row-full { grid-column:1 / -1; }
+
+    input[type="text"],input[type="number"],input[type="date"],select,textarea {
+      width:100%;
+      padding:7px 9px;
+      border-radius:var(--radius-sm);
+      border:1px solid var(--border-subtle);
+      background:#050613;
+      color:var(--text);
+      font-size:13px;
+      outline:none;
+      transition:border 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     }
 
-    input[type="text"],
-    input[type="number"],
-    input[type="date"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 7px 9px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-subtle);
-      background: #050613;
-      color: var(--text);
-      font-size: 13px;
-      outline: none;
-      transition: border 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-    }
-
-    input[type="text"]:focus,
-    input[type="number"]:focus,
-    input[type="date"]:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(76, 111, 255, 0.5);
-      background: #06071a;
+    input[type="text"]:focus,input[type="number"]:focus,input[type="date"]:focus,select:focus,textarea:focus {
+      border-color:var(--accent);
+      box-shadow:0 0 0 1px rgba(76,111,255,0.5);
+      background:#06071a;
     }
 
     input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-    input[type="number"] {
-      -moz-appearance: textfield;
-    }
+    input[type="number"]::-webkit-inner-spin-button { -webkit-appearance:none;margin:0; }
+    input[type="number"] { -moz-appearance:textfield; }
 
-    textarea {
-      min-height: 52px;
-      resize: vertical;
-    }
+    textarea { min-height:52px;resize:vertical; }
 
-    .hint {
-      font-size: 11px;
-      color: var(--text-soft);
-      margin-top: 2px;
-    }
+    .hint { font-size:11px;color:var(--text-soft);margin-top:2px; }
 
     .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin: 6px 0 10px;
+      display:flex;flex-wrap:wrap;gap:6px;
+      margin:6px 0 10px;
     }
 
     .pill-row .pill {
-      padding: 3px 8px;
-      border-radius: 999px;
-      font-size: 11px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(255, 255, 255, 0.02);
-      color: var(--text-soft);
+      padding:3px 8px;border-radius:999px;font-size:11px;
+      border:1px solid rgba(255,255,255,0.06);
+      background:rgba(255,255,255,0.02);color:var(--text-soft);
     }
 
     .btn-row {
-      display: flex;
-      gap: 8px;
-      margin-top: 8px;
-      align-items: center;
-      flex-wrap: wrap;
+      display:flex;gap:8px;margin-top:8px;align-items:center;flex-wrap:wrap;
     }
 
     button {
-      border: none;
-      border-radius: 999px;
-      padding: 7px 13px;
-      font-size: 13px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--accent);
-      color: white;
-      box-shadow: 0 10px 25px rgba(76, 111, 255, 0.55);
-      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
-      white-space: nowrap;
+      border:none;border-radius:999px;
+      padding:7px 13px;font-size:13px;cursor:pointer;
+      display:inline-flex;align-items:center;gap:6px;
+      background:var(--accent);color:white;
+      box-shadow:0 10px 25px rgba(76,111,255,0.55);
+      transition:transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+      white-space:nowrap;
     }
 
     button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 13px 32px rgba(76, 111, 255, 0.68);
-      background: #5c7cff;
+      transform:translateY(-1px);
+      box-shadow:0 13px 32px rgba(76,111,255,0.68);
+      background:#5c7cff;
     }
 
     button.secondary {
-      background: rgba(255, 255, 255, 0.02);
-      color: var(--text-soft);
-      box-shadow: none;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      padding-inline: 11px;
-      font-size: 12px;
+      background:rgba(255,255,255,0.02);
+      color:var(--text-soft);
+      box-shadow:none;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.05);
+      padding-inline:11px;
+      font-size:12px;
     }
 
     button.secondary:hover {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: rgba(255, 255, 255, 0.13);
+      background:rgba(255,255,255,0.04);
+      border-color:rgba(255,255,255,0.13);
     }
 
     .btn-ghost-danger {
-      background: rgba(255, 76, 76, 0.06);
-      color: #ff8a8a;
-      box-shadow: none;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 76, 76, 0.3);
-      padding-inline: 11px;
-      font-size: 12px;
+      background:rgba(255,76,76,0.06);
+      color:#ff8a8a;
+      box-shadow:none;
+      border-radius:999px;
+      border:1px solid rgba(255,76,76,0.3);
+      padding-inline:11px;
+      font-size:12px;
     }
 
-    .btn-ghost-danger:hover {
-      background: rgba(255, 76, 76, 0.12);
-    }
+    .btn-ghost-danger:hover { background:rgba(255,76,76,0.12); }
 
-    .small-label {
-      font-size: 11px;
-      color: var(--text-soft);
-    }
+    .small-label { font-size:11px;color:var(--text-soft); }
 
-    /* Stats bar */
+    /* Stats */
     .stats-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 10px;
-      flex-wrap: wrap;
+      display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap;
     }
 
     .stat-card {
-      flex: 1 1 0;
-      min-width: 90px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(76, 111, 255, 0.25));
-      border-radius: var(--radius-md);
-      padding: 8px 10px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      flex:1 1 0;min-width:90px;
+      background:linear-gradient(135deg,rgba(255,255,255,0.02),rgba(76,111,255,0.25));
+      border-radius:var(--radius-md);
+      padding:8px 10px;
+      border:1px solid rgba(255,255,255,0.05);
     }
 
-    .stat-label {
-      font-size: 11px;
-      color: var(--text-soft);
-      margin-bottom: 2px;
-    }
-
-    .stat-value {
-      font-size: 17px;
-      font-weight: 600;
-    }
-
-    .stat-pill {
-      font-size: 11px;
-      margin-top: 2px;
-      color: var(--text-soft);
-    }
-
-    .stat-value.positive {
-      color: var(--success);
-    }
-
-    .stat-value.negative {
-      color: var(--danger);
-    }
+    .stat-label { font-size:11px;color:var(--text-soft);margin-bottom:2px; }
+    .stat-value { font-size:17px;font-weight:600; }
+    .stat-pill { font-size:11px;margin-top:2px;color:var(--text-soft); }
+    .stat-value.positive { color:var(--success); }
+    .stat-value.negative { color:var(--danger); }
 
     /* Filters */
     .filters-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-      margin-bottom: 10px;
+      display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px;
     }
 
-    .filters-row input,
-    .filters-row select {
-      font-size: 12px;
-      padding: 6px 9px;
+    .filters-row input,.filters-row select {
+      font-size:12px;padding:6px 9px;
     }
 
-    .filters-row .grow {
-      flex: 1 1 120px;
-    }
+    .filters-row .grow { flex:1 1 120px; }
 
-    .filters-row label {
-      font-size: 11px;
-      margin-bottom: 2px;
-    }
+    .filters-row label { font-size:11px;margin-bottom:2px; }
 
     /* Table */
     .table-wrapper {
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      overflow: hidden;
-      background: rgba(5, 6, 19, 0.8);
-      max-height: 520px;
-      display: flex;
-      flex-direction: column;
+      border-radius:var(--radius-md);
+      border:1px solid rgba(255,255,255,0.04);
+      overflow:hidden;
+      background:rgba(5,6,19,0.8);
+      max-height:520px;
+      display:flex;flex-direction:column;
     }
 
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      font-size: 12px;
-      table-layout: fixed;
-    }
+    table { border-collapse:collapse;width:100%;font-size:12px;table-layout:fixed; }
 
-    thead {
-      background: rgba(10, 11, 30, 0.96);
-    }
+    thead { background:rgba(10,11,30,0.96); }
 
-    th, td {
-      padding: 6px 8px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    th,td {
+      padding:6px 8px;
+      border-bottom:1px solid rgba(255,255,255,0.04);
+      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
     }
 
     th {
-      position: sticky;
-      top: 0;
-      z-index: 1;
-      text-align: left;
-      font-size: 11px;
-      color: var(--text-soft);
-      font-weight: 500;
-      cursor: pointer;
-      user-select: none;
+      position:sticky;top:0;z-index:1;
+      text-align:left;font-size:11px;
+      color:var(--text-soft);font-weight:500;
+      cursor:pointer;user-select:none;
     }
 
     th.sortable::after {
-      content: "⇅";
-      font-size: 9px;
-      opacity: 0.55;
-      margin-left: 4px;
+      content:"⇅";font-size:9px;opacity:0.55;margin-left:4px;
     }
+    th.sort-asc::after { content:"↑";opacity:0.9; }
+    th.sort-desc::after { content:"↓";opacity:0.9; }
 
-    th.sort-asc::after {
-      content: "↑";
-      opacity: 0.9;
-    }
-
-    th.sort-desc::after {
-      content: "↓";
-      opacity: 0.9;
-    }
-
-    tbody tr:nth-child(even) {
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    tbody tr:hover {
-      background: rgba(76, 111, 255, 0.12);
-    }
+    tbody tr:nth-child(even) { background:rgba(255,255,255,0.02); }
+    tbody tr:hover { background:rgba(76,111,255,0.12); }
 
     td span.tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 2px 7px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04);
-      font-size: 10px;
-      color: var(--text-soft);
+      display:inline-flex;align-items:center;
+      padding:2px 7px;border-radius:999px;
+      background:rgba(255,255,255,0.04);
+      font-size:10px;color:var(--text-soft);
     }
 
-    .cell-notes {
-      color: var(--text-soft);
-      font-size: 11px;
-    }
+    .cell-notes { color:var(--text-soft);font-size:11px; }
 
     .table-footer {
-      padding: 6px 10px;
-      font-size: 11px;
-      color: var(--text-soft);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.5);
+      padding:6px 10px;font-size:11px;color:var(--text-soft);
+      display:flex;justify-content:space-between;align-items:center;
+      background:rgba(0,0,0,0.5);
     }
 
     .empty-state {
-      padding: 32px 20px;
-      text-align: center;
-      font-size: 13px;
-      color: var(--text-soft);
+      padding:32px 20px;text-align:center;font-size:13px;color:var(--text-soft);
     }
 
-    .empty-state strong {
-      color: var(--accent-strong);
-    }
+    .empty-state strong { color:var(--accent-strong); }
 
     /* Export / Import */
     .export-area {
-      margin-top: 10px;
-      padding-top: 8px;
-      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+      margin-top:10px;padding-top:8px;
+      border-top:1px dashed rgba(255,255,255,0.08);
     }
 
     .export-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 6px;
+      display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;
     }
 
     .export-row textarea {
-      flex: 1 1 100%;
-      font-size: 11px;
+      flex:1 1 100%;font-size:11px;
     }
 
-    .export-hint {
-      font-size: 11px;
-      color: var(--text-soft);
+    .export-hint { font-size:11px;color:var(--text-soft); }
+
+    /* Views */
+    .view { display:none; }
+    .view-active { display:block; }
+
+    /* Lap & Results layout */
+    .panel-full {
+      grid-column:1 / -1;
     }
 
     @media (max-width: 900px) {
-      .layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      .layout { grid-template-columns:minmax(0,1fr); }
+      .panel-full { grid-column:1 / -1; }
     }
 
     @media (max-width: 600px) {
@@ -493,7 +374,7 @@
       td:nth-child(9),
       th:nth-child(11),
       td:nth-child(11) {
-        display: none;
+        display:none;
       }
     }
   </style>
@@ -510,222 +391,352 @@
         Race Records & Leaderboard Hub
       </h1>
       <p>
-        Log your iRacing sessions, track your best results, and sort your own “leaderboards”.
+        Log your iRacing sessions, track your best laps and results, and flip between views using the tabs.
         All data is stored locally in your browser.
       </p>
     </header>
 
-    <main class="layout">
-      <!-- LEFT: FORM PANEL -->
-      <section class="panel">
-        <div class="panel-header">
-          <h2>Add / Edit Session</h2>
-          <span class="sub">Keep it simple now, tweak later.</span>
-        </div>
+    <nav class="nav-tabs">
+      <button class="nav-tab nav-tab-active" data-view="sessions">
+        <span class="icon">📒</span>
+        <span>Sessions</span>
+      </button>
+      <button class="nav-tab" data-view="laps">
+        <span class="icon">⏱️</span>
+        <span>Lap Times</span>
+      </button>
+      <button class="nav-tab" data-view="results">
+        <span class="icon">🏆</span>
+        <span>Results</span>
+      </button>
+    </nav>
 
-        <form id="race-form">
-          <input type="hidden" id="race-id" />
+    <!-- VIEW: SESSIONS (original layout) -->
+    <section id="view-sessions" class="view view-active">
+      <main class="layout">
+        <!-- LEFT: FORM PANEL -->
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Add / Edit Session</h2>
+            <span class="sub">Keep it simple now, tweak later.</span>
+          </div>
 
-          <div class="form-grid">
-            <div>
-              <label for="date">Date</label>
-              <input id="date" type="date" required />
+          <form id="race-form">
+            <input type="hidden" id="race-id" />
+
+            <div class="form-grid">
+              <div>
+                <label for="date">Date</label>
+                <input id="date" type="date" required />
+              </div>
+              <div>
+                <label for="sessionType">Session Type</label>
+                <select id="sessionType">
+                  <option value="Race">Race</option>
+                  <option value="Qualifying">Qualifying</option>
+                  <option value="Practice">Practice</option>
+                  <option value="Time Trial">Time Trial</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="series">Series</label>
+                <input id="series" type="text" placeholder="IMSA, GT3 Fixed, etc." />
+              </div>
+              <div>
+                <label for="car">Car</label>
+                <input id="car" type="text" placeholder="BMW M4 GT3, etc." />
+              </div>
+
+              <div class="form-row-full">
+                <label for="track">Track</label>
+                <input id="track" type="text" placeholder="Road Atlanta, Spa, Nordschleife..." />
+              </div>
+
+              <div>
+                <label for="split">Split</label>
+                <input id="split" type="number" min="1" step="1" placeholder="1" />
+              </div>
+              <div>
+                <label for="sof">SOF</label>
+                <input id="sof" type="number" min="0" step="1" placeholder="Strength of Field" />
+              </div>
+
+              <div>
+                <label for="startPos">Start Pos</label>
+                <input id="startPos" type="number" min="1" step="1" />
+              </div>
+              <div>
+                <label for="finishPos">Finish Pos</label>
+                <input id="finishPos" type="number" min="1" step="1" />
+              </div>
+
+              <div>
+                <label for="laps">Laps</label>
+                <input id="laps" type="number" min="0" step="1" />
+              </div>
+              <div>
+                <label for="bestLap">Best Lap</label>
+                <input id="bestLap" type="text" placeholder="e.g. 1:35.432" />
+                <div class="hint">Format: m:ss.sss or ss.sss</div>
+              </div>
+
+              <div class="form-row-full">
+                <label for="iratingChange">iRating Change</label>
+                <input id="iratingChange" type="number" step="1" placeholder="+/- value (optional)" />
+              </div>
+
+              <div class="form-row-full">
+                <label for="notes">Notes</label>
+                <textarea id="notes" placeholder="Incidents, strategy notes, setup, etc."></textarea>
+              </div>
+            </div>
+
+            <div class="pill-row">
+              <span class="pill">Tip: Use this like your own private notebook.</span>
+              <span class="pill">Export/import data below if you switch devices.</span>
+            </div>
+
+            <div class="btn-row">
+              <button type="submit" id="save-btn">
+                💾 <span id="save-btn-label">Add Session</span>
+              </button>
+              <button type="button" class="secondary" id="reset-form-btn">
+                Reset Form
+              </button>
+              <button type="button" class="btn-ghost-danger" id="clear-all-btn">
+                Clear All Data
+              </button>
+            </div>
+          </form>
+
+          <div class="export-area">
+            <div class="small-label">Export / Import</div>
+            <p class="export-hint">
+              Use this to backup your data or move it to another device. Click
+              <strong>Export</strong>, copy the JSON somewhere safe, and later you can paste it back and hit
+              <strong>Import</strong>.
+            </p>
+            <div class="export-row">
+              <textarea id="export-json" placeholder="Exported JSON will appear here..."></textarea>
+              <div class="btn-row">
+                <button type="button" class="secondary" id="export-btn">Export</button>
+                <button type="button" class="secondary" id="import-btn">Import</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT: TABLE PANEL -->
+        <section class="panel">
+          <div class="panel-header">
+            <h2>Sessions & Leaderboard View</h2>
+            <span class="sub"><span id="session-count">0</span> saved</span>
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-label">Total Races</div>
+              <div class="stat-value" id="stat-total-races">0</div>
+              <div class="stat-pill" id="stat-total-sessions">0 total sessions</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Wins</div>
+              <div class="stat-value positive" id="stat-wins">0</div>
+              <div class="stat-pill" id="stat-podiums">0 podiums</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Best Lap (All Time)</div>
+              <div class="stat-value" id="stat-best-lap">–</div>
+              <div class="stat-pill" id="stat-best-lap-track">No laps logged yet</div>
+            </div>
+          </div>
+
+          <div class="filters-row">
+            <div class="grow">
+              <label>Search</label>
+              <input id="filter-search" type="text" placeholder="Search track, car, series..." />
             </div>
             <div>
-              <label for="sessionType">Session Type</label>
-              <select id="sessionType">
+              <label>Session Type</label>
+              <select id="filter-session">
+                <option value="">All</option>
                 <option value="Race">Race</option>
                 <option value="Qualifying">Qualifying</option>
                 <option value="Practice">Practice</option>
                 <option value="Time Trial">Time Trial</option>
               </select>
             </div>
-
             <div>
-              <label for="series">Series</label>
-              <input id="series" type="text" placeholder="IMSA, GT3 Fixed, etc." />
+              <label>Sort By</label>
+              <select id="filter-sort-preset">
+                <option value="date-desc">Newest First</option>
+                <option value="date-asc">Oldest First</option>
+                <option value="bestLap-asc">Best Lap (Fastest)</option>
+                <option value="finishPos-asc">Best Result</option>
+                <option value="iratingChange-desc">iRating Gain</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="table-wrapper" id="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th class="sortable" data-sort="date">Date</th>
+                  <th class="sortable" data-sort="sessionType">Type</th>
+                  <th class="sortable" data-sort="series">Series</th>
+                  <th class="sortable" data-sort="car">Car</th>
+                  <th class="sortable" data-sort="track">Track</th>
+                  <th class="sortable" data-sort="split">Split</th>
+                  <th class="sortable" data-sort="sof">SOF</th>
+                  <th class="sortable" data-sort="startPos">Start</th>
+                  <th class="sortable" data-sort="finishPos">Finish</th>
+                  <th class="sortable" data-sort="bestLap">Best Lap</th>
+                  <th class="sortable" data-sort="iratingChange">iR Δ</th>
+                  <th>Notes</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="race-tbody"></tbody>
+            </table>
+            <div class="empty-state" id="empty-state">
+              <strong>No sessions yet.</strong><br />
+              Start by logging your next race on the left. This will become your personal
+              iRacing “leaderboard” over time.
+            </div>
+            <div class="table-footer">
+              <span id="table-footer-label">0 sessions visible</span>
+              <span id="table-footer-tip">Tip: Click column headers to sort.</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </section>
+
+    <!-- VIEW: LAP TIMES -->
+    <section id="view-laps" class="view">
+      <main class="layout">
+        <section class="panel panel-full">
+          <div class="panel-header">
+            <h2>Lap Times View</h2>
+            <span class="sub">Filter by track and car, see all best laps.</span>
+          </div>
+
+          <div class="filters-row">
+            <div>
+              <label for="lap-filter-track">Track</label>
+              <select id="lap-filter-track">
+                <option value="">All tracks</option>
+              </select>
             </div>
             <div>
-              <label for="car">Car</label>
-              <input id="car" type="text" placeholder="BMW M4 GT3, etc." />
+              <label for="lap-filter-car">Car</label>
+              <select id="lap-filter-car">
+                <option value="">All cars</option>
+              </select>
             </div>
-
-            <div class="form-row-full">
-              <label for="track">Track</label>
-              <input id="track" type="text" placeholder="Road Atlanta, Spa, Nordschleife..." />
+            <div class="grow">
+              <label for="lap-filter-search">Search</label>
+              <input id="lap-filter-search" type="text" placeholder="Search series / notes..." />
             </div>
+          </div>
 
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Track</th>
+                  <th>Car</th>
+                  <th>Session</th>
+                  <th>Best Lap</th>
+                  <th>Series</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody id="lap-tbody"></tbody>
+            </table>
+            <div class="empty-state" id="lap-empty">
+              <strong>No lap times yet.</strong><br />
+              Any session with a best lap will show up here.
+            </div>
+            <div class="table-footer">
+              <span id="lap-footer-label">0 laps visible</span>
+              <span>Tip: filter by track and car to compare pace.</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </section>
+
+    <!-- VIEW: RESULTS -->
+    <section id="view-results" class="view">
+      <main class="layout">
+        <section class="panel panel-full">
+          <div class="panel-header">
+            <h2>Race Results</h2>
+            <span class="sub">Wins, podiums, and race-only stats.</span>
+          </div>
+
+          <div class="filters-row">
             <div>
-              <label for="split">Split</label>
-              <input id="split" type="number" min="1" step="1" placeholder="1" />
+              <label for="res-filter-only-wins">
+                <input type="checkbox" id="res-filter-only-wins" />
+                Wins only
+              </label>
             </div>
             <div>
-              <label for="sof">SOF</label>
-              <input id="sof" type="number" min="0" step="1" placeholder="Strength of Field" />
+              <label for="res-filter-only-podiums">
+                <input type="checkbox" id="res-filter-only-podiums" />
+                Podiums only
+              </label>
             </div>
-
-            <div>
-              <label for="startPos">Start Pos</label>
-              <input id="startPos" type="number" min="1" step="1" />
-            </div>
-            <div>
-              <label for="finishPos">Finish Pos</label>
-              <input id="finishPos" type="number" min="1" step="1" />
-            </div>
-
-            <div>
-              <label for="laps">Laps</label>
-              <input id="laps" type="number" min="0" step="1" />
-            </div>
-            <div>
-              <label for="bestLap">Best Lap</label>
-              <input id="bestLap" type="text" placeholder="e.g. 1:35.432" />
-              <div class="hint">Format: m:ss.sss or ss.sss</div>
-            </div>
-
-            <div class="form-row-full">
-              <label for="iratingChange">iRating Change</label>
-              <input id="iratingChange" type="number" step="1" placeholder="+/- value (optional)" />
-            </div>
-
-            <div class="form-row-full">
-              <label for="notes">Notes</label>
-              <textarea id="notes" placeholder="Incidents, strategy notes, setup, etc."></textarea>
+            <div class="grow">
+              <label for="res-filter-search">Search</label>
+              <input id="res-filter-search" type="text" placeholder="Search track / car / series..." />
             </div>
           </div>
 
-          <div class="pill-row">
-            <span class="pill">Tip: Use this like your own private notebook.</span>
-            <span class="pill">You can export/import data below.</span>
-          </div>
-
-          <div class="btn-row">
-            <button type="submit" id="save-btn">
-              💾 <span id="save-btn-label">Add Session</span>
-            </button>
-            <button type="button" class="secondary" id="reset-form-btn">
-              Reset Form
-            </button>
-            <button type="button" class="btn-ghost-danger" id="clear-all-btn">
-              Clear All Data
-            </button>
-          </div>
-        </form>
-
-        <div class="export-area">
-          <div class="small-label">Export / Import</div>
-          <p class="export-hint">
-            Use this to backup your data or move it to another device. Click
-            <strong>Export</strong>, copy the JSON somewhere safe, and later you can paste it back and hit
-            <strong>Import</strong>.
-          </p>
-          <div class="export-row">
-            <textarea id="export-json" placeholder="Exported JSON will appear here..."></textarea>
-            <div class="btn-row">
-              <button type="button" class="secondary" id="export-btn">Export</button>
-              <button type="button" class="secondary" id="import-btn">Import</button>
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Track</th>
+                  <th>Car</th>
+                  <th>Series</th>
+                  <th>Start</th>
+                  <th>Finish</th>
+                  <th>Best Lap</th>
+                  <th>iR Δ</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody id="res-tbody"></tbody>
+            </table>
+            <div class="empty-state" id="res-empty">
+              <strong>No race results yet.</strong><br />
+              Add some race sessions on the Sessions tab.
+            </div>
+            <div class="table-footer">
+              <span id="res-footer-label">0 races visible</span>
+              <span id="res-footer-extra">0 wins • 0 podiums</span>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- RIGHT: TABLE PANEL -->
-      <section class="panel">
-        <div class="panel-header">
-          <h2>Sessions & Leaderboard View</h2>
-          <span class="sub"><span id="session-count">0</span> saved</span>
-        </div>
-
-        <div class="stats-row">
-          <div class="stat-card">
-            <div class="stat-label">Total Races</div>
-            <div class="stat-value" id="stat-total-races">0</div>
-            <div class="stat-pill" id="stat-total-sessions">0 total sessions</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">Wins</div>
-            <div class="stat-value positive" id="stat-wins">0</div>
-            <div class="stat-pill" id="stat-podiums">0 podiums</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">Best Lap (All Time)</div>
-            <div class="stat-value" id="stat-best-lap">–</div>
-            <div class="stat-pill" id="stat-best-lap-track">No laps logged yet</div>
-          </div>
-        </div>
-
-        <div class="filters-row">
-          <div class="grow">
-            <label>Search</label>
-            <input id="filter-search" type="text" placeholder="Search track, car, series..." />
-          </div>
-          <div>
-            <label>Session Type</label>
-            <select id="filter-session">
-              <option value="">All</option>
-              <option value="Race">Race</option>
-              <option value="Qualifying">Qualifying</option>
-              <option value="Practice">Practice</option>
-              <option value="Time Trial">Time Trial</option>
-            </select>
-          </div>
-          <div>
-            <label>Sort By</label>
-            <select id="filter-sort-preset">
-              <option value="date-desc">Newest First</option>
-              <option value="date-asc">Oldest First</option>
-              <option value="bestLap-asc">Best Lap (Fastest)</option>
-              <option value="finishPos-asc">Best Result</option>
-              <option value="iratingChange-desc">iRating Gain</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="table-wrapper" id="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th class="sortable" data-sort="date">Date</th>
-                <th class="sortable" data-sort="sessionType">Type</th>
-                <th class="sortable" data-sort="series">Series</th>
-                <th class="sortable" data-sort="car">Car</th>
-                <th class="sortable" data-sort="track">Track</th>
-                <th class="sortable" data-sort="split">Split</th>
-                <th class="sortable" data-sort="sof">SOF</th>
-                <th class="sortable" data-sort="startPos">Start</th>
-                <th class="sortable" data-sort="finishPos">Finish</th>
-                <th class="sortable" data-sort="bestLap">Best Lap</th>
-                <th class="sortable" data-sort="iratingChange">iR Δ</th>
-                <th>Notes</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody id="race-tbody">
-              <!-- Rows injected by JS -->
-            </tbody>
-          </table>
-          <div class="empty-state" id="empty-state">
-            <strong>No sessions yet.</strong><br />
-            Start by logging your next race on the left. This will become your personal
-            iRacing “leaderboard” over time.
-          </div>
-          <div class="table-footer">
-            <span id="table-footer-label">0 sessions visible</span>
-            <span id="table-footer-tip">Tip: Click column headers to sort.</span>
-          </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </section>
   </div>
 
   <script>
     (function () {
       const STORAGE_KEY = "iracing_personal_records_v1";
 
-      /** @type {Array} */
       let races = [];
       let currentSort = { field: "date", direction: "desc" };
 
+      // Form + session view elements
       const form = document.getElementById("race-form");
       const raceIdInput = document.getElementById("race-id");
       const dateInput = document.getElementById("date");
@@ -767,6 +778,50 @@
       const statBestLap = document.getElementById("stat-best-lap");
       const statBestLapTrack = document.getElementById("stat-best-lap-track");
 
+      // Lap view
+      const lapTbody = document.getElementById("lap-tbody");
+      const lapEmpty = document.getElementById("lap-empty");
+      const lapFooterLabel = document.getElementById("lap-footer-label");
+      const lapFilterTrack = document.getElementById("lap-filter-track");
+      const lapFilterCar = document.getElementById("lap-filter-car");
+      const lapFilterSearch = document.getElementById("lap-filter-search");
+
+      // Results view
+      const resTbody = document.getElementById("res-tbody");
+      const resEmpty = document.getElementById("res-empty");
+      const resFooterLabel = document.getElementById("res-footer-label");
+      const resFooterExtra = document.getElementById("res-footer-extra");
+      const resFilterOnlyWins = document.getElementById("res-filter-only-wins");
+      const resFilterOnlyPodiums = document.getElementById("res-filter-only-podiums");
+      const resFilterSearch = document.getElementById("res-filter-search");
+
+      // NAV
+      const navTabs = document.querySelectorAll(".nav-tab");
+      const views = {
+        sessions: document.getElementById("view-sessions"),
+        laps: document.getElementById("view-laps"),
+        results: document.getElementById("view-results")
+      };
+
+      function setView(viewId) {
+        Object.keys(views).forEach(id => {
+          views[id].classList.toggle("view-active", id === viewId);
+        });
+        navTabs.forEach(btn =>
+          btn.classList.toggle(
+            "nav-tab-active",
+            btn.getAttribute("data-view") === viewId
+          )
+        );
+      }
+
+      navTabs.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const v = btn.getAttribute("data-view");
+          setView(v);
+        });
+      });
+
       function loadFromStorage() {
         try {
           const raw = localStorage.getItem(STORAGE_KEY);
@@ -775,13 +830,8 @@
             return;
           }
           const parsed = JSON.parse(raw);
-          if (Array.isArray(parsed)) {
-            races = parsed;
-          } else {
-            races = [];
-          }
-        } catch (e) {
-          console.warn("Failed to parse saved data:", e);
+          races = Array.isArray(parsed) ? parsed : [];
+        } catch {
           races = [];
         }
       }
@@ -789,9 +839,7 @@
       function saveToStorage() {
         try {
           localStorage.setItem(STORAGE_KEY, JSON.stringify(races));
-        } catch (e) {
-          console.warn("Failed to save data:", e);
-        }
+        } catch {}
       }
 
       function parseNumber(value) {
@@ -804,8 +852,6 @@
         if (!str) return null;
         const s = String(str).trim();
         if (!s) return null;
-
-        // format: m:ss.sss
         if (s.includes(":")) {
           const parts = s.split(":");
           if (parts.length !== 2) return null;
@@ -822,7 +868,6 @@
 
       function formatDateDisplay(value) {
         if (!value) return "";
-        // value is YYYY-MM-DD; just return as-is or nicer
         try {
           const [y, m, d] = value.split("-");
           return `${m}/${d}/${y}`;
@@ -834,7 +879,7 @@
       function formatLapTime(str) {
         if (!str) return "";
         const sec = parseLapTimeToSeconds(str);
-        if (sec === null) return str; // fallback to raw
+        if (sec === null) return str;
         const minutes = Math.floor(sec / 60);
         const seconds = sec % 60;
         if (minutes > 0) {
@@ -882,7 +927,7 @@
         }
 
         saveToStorage();
-        refreshUI();
+        refreshAllViews();
         clearForm();
       }
 
@@ -906,20 +951,21 @@
         notesInput.value = race.notes || "";
         saveBtnLabel.textContent = "Update Session";
         window.scrollTo({ top: 0, behavior: "smooth" });
+        setView("sessions");
       }
 
       function handleDelete(id) {
         if (!confirm("Delete this session? This cannot be undone.")) return;
         races = races.filter(r => r.id !== id);
         saveToStorage();
-        refreshUI();
+        refreshAllViews();
       }
 
       function handleClearAll() {
         if (!confirm("Clear ALL saved sessions? This cannot be undone.")) return;
         races = [];
         saveToStorage();
-        refreshUI();
+        refreshAllViews();
         clearForm();
       }
 
@@ -928,9 +974,7 @@
         exportTextarea.select();
         try {
           document.execCommand("copy");
-        } catch {
-          // ignore, clipboard not always available
-        }
+        } catch {}
       }
 
       function handleImport() {
@@ -950,14 +994,14 @@
           }
           races = parsed;
           saveToStorage();
-          refreshUI();
+          refreshAllViews();
           alert("Import complete.");
         } catch (e) {
           alert("Failed to parse JSON. Check your data and try again.");
         }
       }
 
-      function applyFilters(list) {
+      function applyFiltersSession(list) {
         const q = filterSearch.value.trim().toLowerCase();
         const sessionFilter = filterSession.value;
 
@@ -965,13 +1009,7 @@
           if (sessionFilter && r.sessionType !== sessionFilter) return false;
 
           if (q) {
-            const blob = [
-              r.series,
-              r.car,
-              r.track,
-              r.notes,
-              r.sessionType
-            ]
+            const blob = [r.series, r.car, r.track, r.notes, r.sessionType]
               .filter(Boolean)
               .join(" ")
               .toLowerCase();
@@ -1034,7 +1072,6 @@
         statWins.textContent = wins;
         statPodiums.textContent = `${podiums} podium${podiums === 1 ? "" : "s"}`;
 
-        // best lap (all-time over all sessions)
         let best = null;
         let bestRace = null;
         for (const r of races) {
@@ -1055,19 +1092,14 @@
         }
       }
 
-      function refreshUI() {
+      function refreshSessionView() {
         sessionCountSpan.textContent = races.length;
 
-        const filtered = applyFilters(races);
+        const filtered = applyFiltersSession(races);
         const sorted = applySort(filtered);
 
-        // table
         tbody.innerHTML = "";
-        if (sorted.length === 0) {
-          emptyState.style.display = "block";
-        } else {
-          emptyState.style.display = "none";
-        }
+        emptyState.style.display = sorted.length === 0 ? "block" : "none";
 
         for (const r of sorted) {
           const tr = document.createElement("tr");
@@ -1181,7 +1213,7 @@
           currentSort.field = field;
           currentSort.direction = field === "date" ? "desc" : "asc";
         }
-        refreshUI();
+        refreshSessionView();
         syncSortPresetWithCurrent();
       }
 
@@ -1215,7 +1247,7 @@
             currentSort = { field: "iratingChange", direction: "desc" };
             break;
         }
-        refreshUI();
+        refreshSessionView();
       }
 
       function initDefaultDate() {
@@ -1226,11 +1258,207 @@
         }
       }
 
-      // Event wiring
+      // Lap view helpers
+      function buildLapFilterOptions() {
+        const tracks = new Set();
+        const cars = new Set();
+        races.forEach(r => {
+          if (r.bestLap && r.track) tracks.add(r.track);
+          if (r.bestLap && r.car) cars.add(r.car);
+        });
+
+        const currentTrack = lapFilterTrack.value;
+        const currentCar = lapFilterCar.value;
+
+        lapFilterTrack.innerHTML = `<option value="">All tracks</option>`;
+        Array.from(tracks).sort().forEach(t => {
+          const opt = document.createElement("option");
+          opt.value = t;
+          opt.textContent = t;
+          lapFilterTrack.appendChild(opt);
+        });
+        if (currentTrack) lapFilterTrack.value = currentTrack;
+
+        lapFilterCar.innerHTML = `<option value="">All cars</option>`;
+        Array.from(cars).sort().forEach(c => {
+          const opt = document.createElement("option");
+          opt.value = c;
+          opt.textContent = c;
+          lapFilterCar.appendChild(opt);
+        });
+        if (currentCar) lapFilterCar.value = currentCar;
+      }
+
+      function refreshLapView() {
+        buildLapFilterOptions();
+
+        const trackVal = lapFilterTrack.value;
+        const carVal = lapFilterCar.value;
+        const q = lapFilterSearch.value.trim().toLowerCase();
+
+        const laps = races.filter(r => r.bestLap && r.bestLap.trim() !== "");
+
+        const filtered = laps.filter(r => {
+          if (trackVal && r.track !== trackVal) return false;
+          if (carVal && r.car !== carVal) return false;
+          if (q) {
+            const blob = [r.series, r.notes].filter(Boolean).join(" ").toLowerCase();
+            if (!blob.includes(q)) return false;
+          }
+          return true;
+        });
+
+        lapTbody.innerHTML = "";
+        lapEmpty.style.display = filtered.length === 0 ? "block" : "none";
+
+        const sorted = [...filtered].sort((a, b) => {
+          const aLap = parseLapTimeToSeconds(a.bestLap);
+          const bLap = parseLapTimeToSeconds(b.bestLap);
+          if (aLap === null && bLap === null) return 0;
+          if (aLap === null) return 1;
+          if (bLap === null) return -1;
+          return aLap - bLap;
+        });
+
+        for (const r of sorted) {
+          const tr = document.createElement("tr");
+
+          const dateTd = document.createElement("td");
+          dateTd.textContent = formatDateDisplay(r.date);
+          tr.appendChild(dateTd);
+
+          const trackTd = document.createElement("td");
+          trackTd.textContent = r.track || "–";
+          tr.appendChild(trackTd);
+
+          const carTd = document.createElement("td");
+          carTd.textContent = r.car || "–";
+          tr.appendChild(carTd);
+
+          const typeTd = document.createElement("td");
+          typeTd.textContent = r.sessionType || "–";
+          tr.appendChild(typeTd);
+
+          const lapTd = document.createElement("td");
+          lapTd.textContent = formatLapTime(r.bestLap);
+          tr.appendChild(lapTd);
+
+          const seriesTd = document.createElement("td");
+          seriesTd.textContent = r.series || "–";
+          tr.appendChild(seriesTd);
+
+          const notesTd = document.createElement("td");
+          notesTd.className = "cell-notes";
+          notesTd.textContent = r.notes || "";
+          tr.appendChild(notesTd);
+
+          lapTbody.appendChild(tr);
+        }
+
+        lapFooterLabel.textContent = `${filtered.length} lap${filtered.length === 1 ? "" : "s"} visible`;
+      }
+
+      // Results view
+      function refreshResultsView() {
+        const q = resFilterSearch.value.trim().toLowerCase();
+        const onlyWins = resFilterOnlyWins.checked;
+        const onlyPodiums = resFilterOnlyPodiums.checked;
+
+        const racesOnly = races.filter(r => r.sessionType === "Race");
+
+        const filtered = racesOnly.filter(r => {
+          if (onlyWins && r.finishPos !== 1) return false;
+          if (onlyPodiums && !(typeof r.finishPos === "number" && r.finishPos > 0 && r.finishPos <= 3)) {
+            return false;
+          }
+          if (q) {
+            const blob = [r.track, r.car, r.series, r.notes]
+              .filter(Boolean)
+              .join(" ")
+              .toLowerCase();
+            if (!blob.includes(q)) return false;
+          }
+          return true;
+        });
+
+        const sorted = [...filtered].sort((a, b) => {
+          const aDate = a.date ? new Date(a.date).getTime() : 0;
+          const bDate = b.date ? new Date(b.date).getTime() : 0;
+          return bDate - aDate;
+        });
+
+        resTbody.innerHTML = "";
+        resEmpty.style.display = sorted.length === 0 ? "block" : "none";
+
+        let wins = 0;
+        let podiums = 0;
+
+        for (const r of sorted) {
+          if (r.finishPos === 1) wins++;
+          if (typeof r.finishPos === "number" && r.finishPos > 0 && r.finishPos <= 3) podiums++;
+
+          const tr = document.createElement("tr");
+
+          const dateTd = document.createElement("td");
+          dateTd.textContent = formatDateDisplay(r.date);
+          tr.appendChild(dateTd);
+
+          const trackTd = document.createElement("td");
+          trackTd.textContent = r.track || "–";
+          tr.appendChild(trackTd);
+
+          const carTd = document.createElement("td");
+          carTd.textContent = r.car || "–";
+          tr.appendChild(carTd);
+
+          const seriesTd = document.createElement("td");
+          seriesTd.textContent = r.series || "–";
+          tr.appendChild(seriesTd);
+
+          const startTd = document.createElement("td");
+          startTd.textContent = r.startPos != null ? r.startPos : "–";
+          tr.appendChild(startTd);
+
+          const finishTd = document.createElement("td");
+          finishTd.textContent = r.finishPos != null ? r.finishPos : "–";
+          tr.appendChild(finishTd);
+
+          const lapTd = document.createElement("td");
+          lapTd.textContent = r.bestLap ? formatLapTime(r.bestLap) : "–";
+          tr.appendChild(lapTd);
+
+          const irTd = document.createElement("td");
+          if (typeof r.iratingChange === "number") {
+            const value = r.iratingChange;
+            irTd.textContent = value > 0 ? `+${value}` : `${value}`;
+            irTd.style.color = value > 0 ? "var(--success)" : value < 0 ? "var(--danger)" : "inherit";
+          } else {
+            irTd.textContent = "–";
+          }
+          tr.appendChild(irTd);
+
+          const notesTd = document.createElement("td");
+          notesTd.className = "cell-notes";
+          notesTd.textContent = r.notes || "";
+          tr.appendChild(notesTd);
+
+          resTbody.appendChild(tr);
+        }
+
+        resFooterLabel.textContent = `${sorted.length} race${sorted.length === 1 ? "" : "s"} visible`;
+        resFooterExtra.textContent = `${wins} win${wins === 1 ? "" : "s"} • ${podiums} podium${podiums === 1 ? "" : "s"}`;
+      }
+
+      function refreshAllViews() {
+        refreshSessionView();
+        refreshLapView();
+        refreshResultsView();
+      }
+
       document.addEventListener("DOMContentLoaded", () => {
         loadFromStorage();
         initDefaultDate();
-        refreshUI();
+        refreshAllViews();
 
         form.addEventListener("submit", handleFormSubmit);
         resetFormBtn.addEventListener("click", clearForm);
@@ -1238,14 +1466,20 @@
         exportBtn.addEventListener("click", handleExport);
         importBtn.addEventListener("click", handleImport);
 
-        filterSearch.addEventListener("input", refreshUI);
-        filterSession.addEventListener("change", refreshUI);
+        filterSearch.addEventListener("input", refreshAllViews);
+        filterSession.addEventListener("change", refreshAllViews);
         filterSortPreset.addEventListener("change", handleSortPresetChange);
 
-        const head = document.querySelector("thead");
-        if (head) {
-          head.addEventListener("click", handleHeaderClick);
-        }
+        lapFilterTrack.addEventListener("change", refreshLapView);
+        lapFilterCar.addEventListener("change", refreshLapView);
+        lapFilterSearch.addEventListener("input", refreshLapView);
+
+        resFilterOnlyWins.addEventListener("change", refreshResultsView);
+        resFilterOnlyPodiums.addEventListener("change", refreshResultsView);
+        resFilterSearch.addEventListener("input", refreshResultsView);
+
+        const head = document.querySelector("#view-sessions thead");
+        if (head) head.addEventListener("click", handleHeaderClick);
       });
     })();
   </script>
