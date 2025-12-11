@@ -22,104 +22,1232 @@
       --radius-sm: 6px;
       --shadow-soft: 0 14px 45px rgba(0,0,0,0.6);
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #151731 0, #02030b 48%, #020109 100%);
       color: var(--text);
-      display: flex; justify-content: center;
+      display: flex;
+      justify-content: center;
       padding: 20px;
     }
-    .app { width: 100%; max-width: 1220px; }
 
-    header { margin-bottom: 18px; }
+    .app {
+      width: 100%;
+      max-width: 1220px;
+    }
+
+    header {
+      margin-bottom: 18px;
+    }
+
     .badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 4px 10px; border-radius: 999px;
-      background: rgba(255,255,255,0.03);
-      border:1px solid rgba(255,255,255,0.05);
-      font-size:11px; text-transform:uppercase; letter-spacing:0.08em;
-      color:var(--text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-soft);
     }
-    .badge-dot { width:6px; height:6px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px rgba(76,111,255,0.9); }
-    h1 { font-size:28px; margin:10px 0 4px; display:flex; align-items:center; gap:10px; }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(76, 111, 255, 0.9);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 10px 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     h1 span.logo-pill {
-      display:inline-flex; align-items:center; justify-content:center;
-      width:26px; height:26px; border-radius:9px;
-      background:linear-gradient(135deg,#ff4b91,#ffbf3c);
-      font-size:15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, #ff4b91, #ffbf3c);
+      font-size: 15px;
     }
 
-    header p { margin:0; color:var(--text-soft); font-size:14px; }
+    header p {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
     .layout {
-      display:grid;
-      grid-template-columns:minmax(0,340px) minmax(0,1fr);
-      gap:18px;
+      display: grid;
+      grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+      gap: 18px;
     }
+
     .panel {
-      background:radial-gradient(circle at 0 0,#252a4d 0,#111323 32%,#080918 100%);
-      border-radius:var(--radius-lg);
-      box-shadow:var(--shadow-soft);
-      border:1px solid rgba(255,255,255,0.04);
-      padding:16px 16px 14px;
-      position:relative; overflow:hidden;
+      background: radial-gradient(circle at 0 0, #252a4d 0, #111323 32%, #080918 100%);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 16px 16px 14px;
+      position: relative;
+      overflow: hidden;
     }
+
     .panel::before {
-      content:""; position:absolute; inset:0; pointer-events:none; opacity:0.5;
-      background:radial-gradient(circle at top left, rgba(76,111,255,0.16), transparent 55%);
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.5;
+      background: radial-gradient(circle at top left, rgba(76, 111, 255, 0.16), transparent 55%);
     }
 
-    form label { display:block; font-size:12px; margin-bottom:4px; color:var(--text-soft); }
-    .form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 12px; }
-    .form-row-full { grid-column:1 / -1; }
-    input, select, textarea {
-      width:100%; padding:7px 9px;
-      border-radius:var(--radius-sm);
-      border:1px solid var(--border-subtle);
-      background:#050613; color:var(--text);
-      font-size:13px; outline:none;
-      transition:border 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    .panel > * {
+      position: relative;
+      z-index: 1;
     }
 
-    input:focus, select:focus, textarea:focus {
-      border-color:var(--accent);
-      box-shadow:0 0 0 1px rgba(76,111,255,0.5);
-      background:#06071a;
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
     }
-    textarea { min-height:52px; resize:vertical; }
-    .btn-row { display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; }
+
+    .panel-header h2 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .panel-header span.sub {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    form label {
+      display: block;
+      font-size: 12px;
+      margin-bottom: 4px;
+      color: var(--text-soft);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 12px;
+    }
+
+    .form-row-full {
+      grid-column: 1 / -1;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 7px 9px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      background: #050613;
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+      transition: border 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus,
+    input[type="date"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(76, 111, 255, 0.5);
+      background: #06071a;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    textarea {
+      min-height: 52px;
+      resize: vertical;
+    }
+
+    .hint {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-top: 2px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 6px 0 10px;
+    }
+
+    .pill-row .pill {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-soft);
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
     button {
-      border:none; border-radius:999px;
-      padding:7px 13px; font-size:13px; cursor:pointer;
-      display:inline-flex; align-items:center; gap:6px;
-      background:var(--accent); color:white;
-      box-shadow:0 10px 25px rgba(76,111,255,0.55);
-      transition:transform 0.1s ease, box-shadow 0.1s ease;
+      border: none;
+      border-radius: 999px;
+      padding: 7px 13px;
+      font-size: 13px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 10px 25px rgba(76, 111, 255, 0.55);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+      white-space: nowrap;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 13px 32px rgba(76, 111, 255, 0.68);
+      background: #5c7cff;
     }
 
     button.secondary {
-      background:rgba(255,255,255,0.02);
-      color:var(--text-soft);
-      border:1px solid rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-soft);
+      box-shadow: none;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding-inline: 11px;
+      font-size: 12px;
     }
-    .table-wrapper {
-      border-radius:var(--radius-md);
-      border:1px solid rgba(255,255,255,0.04);
-      background:rgba(5,6,19,0.8);
-      max-height:520px;
-      overflow:hidden;
-    }
-    table { width:100%; border-collapse:collapse; font-size:12px; }
 
-    thead th { position:sticky; top:0; background:#0a0b1e; cursor:pointer; }
-    tbody tr:nth-child(even) { background:rgba(255,255,255,0.02); }
-    tbody tr:hover { background:rgba(76,111,255,0.12); }
+    button.secondary:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.13);
+    }
+
+    .btn-ghost-danger {
+      background: rgba(255, 76, 76, 0.06);
+      color: #ff8a8a;
+      box-shadow: none;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 76, 76, 0.3);
+      padding-inline: 11px;
+      font-size: 12px;
+    }
+
+    .btn-ghost-danger:hover {
+      background: rgba(255, 76, 76, 0.12);
+    }
+
+    .small-label {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    /* Stats bar */
+    .stats-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      flex: 1 1 0;
+      min-width: 90px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(76, 111, 255, 0.25));
+      border-radius: var(--radius-md);
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-bottom: 2px;
+    }
+
+    .stat-value {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .stat-pill {
+      font-size: 11px;
+      margin-top: 2px;
+      color: var(--text-soft);
+    }
+
+    .stat-value.positive {
+      color: var(--success);
+    }
+
+    .stat-value.negative {
+      color: var(--danger);
+    }
+
+    /* Filters */
+    .filters-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .filters-row input,
+    .filters-row select {
+      font-size: 12px;
+      padding: 6px 9px;
+    }
+
+    .filters-row .grow {
+      flex: 1 1 120px;
+    }
+
+    .filters-row label {
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    /* Table */
+    .table-wrapper {
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      overflow: hidden;
+      background: rgba(5, 6, 19, 0.8);
+      max-height: 520px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 12px;
+      table-layout: fixed;
+    }
+
+    thead {
+      background: rgba(10, 11, 30, 0.96);
+    }
+
+    th, td {
+      padding: 6px 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      text-align: left;
+      font-size: 11px;
+      color: var(--text-soft);
+      font-weight: 500;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    th.sortable::after {
+      content: "⇅";
+      font-size: 9px;
+      opacity: 0.55;
+      margin-left: 4px;
+    }
+
+    th.sort-asc::after {
+      content: "↑";
+      opacity: 0.9;
+    }
+
+    th.sort-desc::after {
+      content: "↓";
+      opacity: 0.9;
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    tbody tr:hover {
+      background: rgba(76, 111, 255, 0.12);
+    }
+
+    td span.tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 10px;
+      color: var(--text-soft);
+    }
+
+    .cell-notes {
+      color: var(--text-soft);
+      font-size: 11px;
+    }
+
+    .table-footer {
+      padding: 6px 10px;
+      font-size: 11px;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .empty-state {
+      padding: 32px 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .empty-state strong {
+      color: var(--accent-strong);
+    }
+
+    /* Export / Import */
+    .export-area {
+      margin-top: 10px;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .export-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .export-row textarea {
+      flex: 1 1 100%;
+      font-size: 11px;
+    }
+
+    .export-hint {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      th:nth-child(6),
+      td:nth-child(6),
+      th:nth-child(7),
+      td:nth-child(7),
+      th:nth-child(9),
+      td:nth-child(9),
+      th:nth-child(11),
+      td:nth-child(11) {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Full iRacing Tracker Website</h1>
-  <p>The complete file has been generated.</p>
+  <div class="app">
+    <header>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Personal iRacing Tracker
+      </div>
+      <h1>
+        <span class="logo-pill">🏁</span>
+        Race Records & Leaderboard Hub
+      </h1>
+      <p>
+        Log your iRacing sessions, track your best results, and sort your own “leaderboards”.
+        All data is stored locally in your browser.
+      </p>
+    </header>
+
+    <main class="layout">
+      <!-- LEFT: FORM PANEL -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Add / Edit Session</h2>
+          <span class="sub">Keep it simple now, tweak later.</span>
+        </div>
+
+        <form id="race-form">
+          <input type="hidden" id="race-id" />
+
+          <div class="form-grid">
+            <div>
+              <label for="date">Date</label>
+              <input id="date" type="date" required />
+            </div>
+            <div>
+              <label for="sessionType">Session Type</label>
+              <select id="sessionType">
+                <option value="Race">Race</option>
+                <option value="Qualifying">Qualifying</option>
+                <option value="Practice">Practice</option>
+                <option value="Time Trial">Time Trial</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="series">Series</label>
+              <input id="series" type="text" placeholder="IMSA, GT3 Fixed, etc." />
+            </div>
+            <div>
+              <label for="car">Car</label>
+              <input id="car" type="text" placeholder="BMW M4 GT3, etc." />
+            </div>
+
+            <div class="form-row-full">
+              <label for="track">Track</label>
+              <input id="track" type="text" placeholder="Road Atlanta, Spa, Nordschleife..." />
+            </div>
+
+            <div>
+              <label for="split">Split</label>
+              <input id="split" type="number" min="1" step="1" placeholder="1" />
+            </div>
+            <div>
+              <label for="sof">SOF</label>
+              <input id="sof" type="number" min="0" step="1" placeholder="Strength of Field" />
+            </div>
+
+            <div>
+              <label for="startPos">Start Pos</label>
+              <input id="startPos" type="number" min="1" step="1" />
+            </div>
+            <div>
+              <label for="finishPos">Finish Pos</label>
+              <input id="finishPos" type="number" min="1" step="1" />
+            </div>
+
+            <div>
+              <label for="laps">Laps</label>
+              <input id="laps" type="number" min="0" step="1" />
+            </div>
+            <div>
+              <label for="bestLap">Best Lap</label>
+              <input id="bestLap" type="text" placeholder="e.g. 1:35.432" />
+              <div class="hint">Format: m:ss.sss or ss.sss</div>
+            </div>
+
+            <div class="form-row-full">
+              <label for="iratingChange">iRating Change</label>
+              <input id="iratingChange" type="number" step="1" placeholder="+/- value (optional)" />
+            </div>
+
+            <div class="form-row-full">
+              <label for="notes">Notes</label>
+              <textarea id="notes" placeholder="Incidents, strategy notes, setup, etc."></textarea>
+            </div>
+          </div>
+
+          <div class="pill-row">
+            <span class="pill">Tip: Use this like your own private notebook.</span>
+            <span class="pill">You can export/import data below.</span>
+          </div>
+
+          <div class="btn-row">
+            <button type="submit" id="save-btn">
+              💾 <span id="save-btn-label">Add Session</span>
+            </button>
+            <button type="button" class="secondary" id="reset-form-btn">
+              Reset Form
+            </button>
+            <button type="button" class="btn-ghost-danger" id="clear-all-btn">
+              Clear All Data
+            </button>
+          </div>
+        </form>
+
+        <div class="export-area">
+          <div class="small-label">Export / Import</div>
+          <p class="export-hint">
+            Use this to backup your data or move it to another device. Click
+            <strong>Export</strong>, copy the JSON somewhere safe, and later you can paste it back and hit
+            <strong>Import</strong>.
+          </p>
+          <div class="export-row">
+            <textarea id="export-json" placeholder="Exported JSON will appear here..."></textarea>
+            <div class="btn-row">
+              <button type="button" class="secondary" id="export-btn">Export</button>
+              <button type="button" class="secondary" id="import-btn">Import</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: TABLE PANEL -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Sessions & Leaderboard View</h2>
+          <span class="sub"><span id="session-count">0</span> saved</span>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-label">Total Races</div>
+            <div class="stat-value" id="stat-total-races">0</div>
+            <div class="stat-pill" id="stat-total-sessions">0 total sessions</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Wins</div>
+            <div class="stat-value positive" id="stat-wins">0</div>
+            <div class="stat-pill" id="stat-podiums">0 podiums</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Best Lap (All Time)</div>
+            <div class="stat-value" id="stat-best-lap">–</div>
+            <div class="stat-pill" id="stat-best-lap-track">No laps logged yet</div>
+          </div>
+        </div>
+
+        <div class="filters-row">
+          <div class="grow">
+            <label>Search</label>
+            <input id="filter-search" type="text" placeholder="Search track, car, series..." />
+          </div>
+          <div>
+            <label>Session Type</label>
+            <select id="filter-session">
+              <option value="">All</option>
+              <option value="Race">Race</option>
+              <option value="Qualifying">Qualifying</option>
+              <option value="Practice">Practice</option>
+              <option value="Time Trial">Time Trial</option>
+            </select>
+          </div>
+          <div>
+            <label>Sort By</label>
+            <select id="filter-sort-preset">
+              <option value="date-desc">Newest First</option>
+              <option value="date-asc">Oldest First</option>
+              <option value="bestLap-asc">Best Lap (Fastest)</option>
+              <option value="finishPos-asc">Best Result</option>
+              <option value="iratingChange-desc">iRating Gain</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-wrapper" id="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th class="sortable" data-sort="date">Date</th>
+                <th class="sortable" data-sort="sessionType">Type</th>
+                <th class="sortable" data-sort="series">Series</th>
+                <th class="sortable" data-sort="car">Car</th>
+                <th class="sortable" data-sort="track">Track</th>
+                <th class="sortable" data-sort="split">Split</th>
+                <th class="sortable" data-sort="sof">SOF</th>
+                <th class="sortable" data-sort="startPos">Start</th>
+                <th class="sortable" data-sort="finishPos">Finish</th>
+                <th class="sortable" data-sort="bestLap">Best Lap</th>
+                <th class="sortable" data-sort="iratingChange">iR Δ</th>
+                <th>Notes</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="race-tbody">
+              <!-- Rows injected by JS -->
+            </tbody>
+          </table>
+          <div class="empty-state" id="empty-state">
+            <strong>No sessions yet.</strong><br />
+            Start by logging your next race on the left. This will become your personal
+            iRacing “leaderboard” over time.
+          </div>
+          <div class="table-footer">
+            <span id="table-footer-label">0 sessions visible</span>
+            <span id="table-footer-tip">Tip: Click column headers to sort.</span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const STORAGE_KEY = "iracing_personal_records_v1";
+
+      /** @type {Array} */
+      let races = [];
+      let currentSort = { field: "date", direction: "desc" };
+
+      const form = document.getElementById("race-form");
+      const raceIdInput = document.getElementById("race-id");
+      const dateInput = document.getElementById("date");
+      const sessionTypeInput = document.getElementById("sessionType");
+      const seriesInput = document.getElementById("series");
+      const carInput = document.getElementById("car");
+      const trackInput = document.getElementById("track");
+      const splitInput = document.getElementById("split");
+      const sofInput = document.getElementById("sof");
+      const startPosInput = document.getElementById("startPos");
+      const finishPosInput = document.getElementById("finishPos");
+      const lapsInput = document.getElementById("laps");
+      const bestLapInput = document.getElementById("bestLap");
+      const iratingChangeInput = document.getElementById("iratingChange");
+      const notesInput = document.getElementById("notes");
+
+      const saveBtnLabel = document.getElementById("save-btn-label");
+      const resetFormBtn = document.getElementById("reset-form-btn");
+      const clearAllBtn = document.getElementById("clear-all-btn");
+
+      const exportTextarea = document.getElementById("export-json");
+      const exportBtn = document.getElementById("export-btn");
+      const importBtn = document.getElementById("import-btn");
+
+      const tbody = document.getElementById("race-tbody");
+      const emptyState = document.getElementById("empty-state");
+      const sessionCountSpan = document.getElementById("session-count");
+      const tableFooterLabel = document.getElementById("table-footer-label");
+
+      const filterSearch = document.getElementById("filter-search");
+      const filterSession = document.getElementById("filter-session");
+      const filterSortPreset = document.getElementById("filter-sort-preset");
+
+      // Stats
+      const statTotalRaces = document.getElementById("stat-total-races");
+      const statTotalSessions = document.getElementById("stat-total-sessions");
+      const statWins = document.getElementById("stat-wins");
+      const statPodiums = document.getElementById("stat-podiums");
+      const statBestLap = document.getElementById("stat-best-lap");
+      const statBestLapTrack = document.getElementById("stat-best-lap-track");
+
+      function loadFromStorage() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) {
+            races = [];
+            return;
+          }
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) {
+            races = parsed;
+          } else {
+            races = [];
+          }
+        } catch (e) {
+          console.warn("Failed to parse saved data:", e);
+          races = [];
+        }
+      }
+
+      function saveToStorage() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(races));
+        } catch (e) {
+          console.warn("Failed to save data:", e);
+        }
+      }
+
+      function parseNumber(value) {
+        if (value === "" || value === null || typeof value === "undefined") return null;
+        const n = Number(value);
+        return isNaN(n) ? null : n;
+      }
+
+      function parseLapTimeToSeconds(str) {
+        if (!str) return null;
+        const s = String(str).trim();
+        if (!s) return null;
+
+        // format: m:ss.sss
+        if (s.includes(":")) {
+          const parts = s.split(":");
+          if (parts.length !== 2) return null;
+          const m = Number(parts[0]);
+          const sec = Number(parts[1]);
+          if (isNaN(m) || isNaN(sec)) return null;
+          return m * 60 + sec;
+        } else {
+          const sec = Number(s);
+          if (isNaN(sec)) return null;
+          return sec;
+        }
+      }
+
+      function formatDateDisplay(value) {
+        if (!value) return "";
+        // value is YYYY-MM-DD; just return as-is or nicer
+        try {
+          const [y, m, d] = value.split("-");
+          return `${m}/${d}/${y}`;
+        } catch {
+          return value;
+        }
+      }
+
+      function formatLapTime(str) {
+        if (!str) return "";
+        const sec = parseLapTimeToSeconds(str);
+        if (sec === null) return str; // fallback to raw
+        const minutes = Math.floor(sec / 60);
+        const seconds = sec % 60;
+        if (minutes > 0) {
+          return `${minutes}:${seconds.toFixed(3).padStart(6, "0")}`;
+        }
+        return seconds.toFixed(3);
+      }
+
+      function clearForm() {
+        form.reset();
+        raceIdInput.value = "";
+        saveBtnLabel.textContent = "Add Session";
+        const today = new Date();
+        const iso = today.toISOString().slice(0, 10);
+        dateInput.value = iso;
+      }
+
+      function handleFormSubmit(event) {
+        event.preventDefault();
+
+        const id = raceIdInput.value || String(Date.now());
+        const race = {
+          id,
+          date: dateInput.value || null,
+          sessionType: sessionTypeInput.value || "Race",
+          series: seriesInput.value.trim(),
+          car: carInput.value.trim(),
+          track: trackInput.value.trim(),
+          split: parseNumber(splitInput.value),
+          sof: parseNumber(sofInput.value),
+          startPos: parseNumber(startPosInput.value),
+          finishPos: parseNumber(finishPosInput.value),
+          laps: parseNumber(lapsInput.value),
+          bestLap: bestLapInput.value.trim() || "",
+          iratingChange: parseNumber(iratingChangeInput.value),
+          notes: notesInput.value.trim(),
+          createdAt: Date.now()
+        };
+
+        const existingIndex = races.findIndex(r => r.id === id);
+        if (existingIndex >= 0) {
+          races[existingIndex] = race;
+        } else {
+          races.push(race);
+        }
+
+        saveToStorage();
+        refreshUI();
+        clearForm();
+      }
+
+      function handleEdit(id) {
+        const race = races.find(r => r.id === id);
+        if (!race) return;
+
+        raceIdInput.value = race.id;
+        dateInput.value = race.date || "";
+        sessionTypeInput.value = race.sessionType || "Race";
+        seriesInput.value = race.series || "";
+        carInput.value = race.car || "";
+        trackInput.value = race.track || "";
+        splitInput.value = race.split ?? "";
+        sofInput.value = race.sof ?? "";
+        startPosInput.value = race.startPos ?? "";
+        finishPosInput.value = race.finishPos ?? "";
+        lapsInput.value = race.laps ?? "";
+        bestLapInput.value = race.bestLap || "";
+        iratingChangeInput.value = race.iratingChange ?? "";
+        notesInput.value = race.notes || "";
+        saveBtnLabel.textContent = "Update Session";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function handleDelete(id) {
+        if (!confirm("Delete this session? This cannot be undone.")) return;
+        races = races.filter(r => r.id !== id);
+        saveToStorage();
+        refreshUI();
+      }
+
+      function handleClearAll() {
+        if (!confirm("Clear ALL saved sessions? This cannot be undone.")) return;
+        races = [];
+        saveToStorage();
+        refreshUI();
+        clearForm();
+      }
+
+      function handleExport() {
+        exportTextarea.value = JSON.stringify(races, null, 2);
+        exportTextarea.select();
+        try {
+          document.execCommand("copy");
+        } catch {
+          // ignore, clipboard not always available
+        }
+      }
+
+      function handleImport() {
+        let raw = exportTextarea.value.trim();
+        if (!raw) {
+          alert("Paste JSON data into the box first.");
+          return;
+        }
+        try {
+          const parsed = JSON.parse(raw);
+          if (!Array.isArray(parsed)) {
+            alert("Invalid JSON: expected an array.");
+            return;
+          }
+          if (!confirm("Importing will replace your current data. Continue?")) {
+            return;
+          }
+          races = parsed;
+          saveToStorage();
+          refreshUI();
+          alert("Import complete.");
+        } catch (e) {
+          alert("Failed to parse JSON. Check your data and try again.");
+        }
+      }
+
+      function applyFilters(list) {
+        const q = filterSearch.value.trim().toLowerCase();
+        const sessionFilter = filterSession.value;
+
+        return list.filter(r => {
+          if (sessionFilter && r.sessionType !== sessionFilter) return false;
+
+          if (q) {
+            const blob = [
+              r.series,
+              r.car,
+              r.track,
+              r.notes,
+              r.sessionType
+            ]
+              .filter(Boolean)
+              .join(" ")
+              .toLowerCase();
+            if (!blob.includes(q)) return false;
+          }
+
+          return true;
+        });
+      }
+
+      function applySort(list) {
+        const arr = [...list];
+        const { field, direction } = currentSort;
+        const asc = direction === "asc" ? 1 : -1;
+
+        arr.sort((a, b) => {
+          let av = a[field];
+          let bv = b[field];
+
+          if (field === "date") {
+            const aTime = av ? new Date(av).getTime() : 0;
+            const bTime = bv ? new Date(bv).getTime() : 0;
+            return (aTime - bTime) * asc;
+          }
+
+          if (field === "bestLap") {
+            const aLap = parseLapTimeToSeconds(av);
+            const bLap = parseLapTimeToSeconds(bv);
+            if (aLap === null && bLap === null) return 0;
+            if (aLap === null) return 1;
+            if (bLap === null) return -1;
+            return (aLap - bLap) * asc;
+          }
+
+          if (typeof av === "number" && typeof bv === "number") {
+            if (av === bv) return 0;
+            return av > bv ? asc : -asc;
+          }
+
+          av = (av ?? "").toString().toLowerCase();
+          bv = (bv ?? "").toString().toLowerCase();
+          if (av === bv) return 0;
+          return av > bv ? asc : -asc;
+        });
+
+        return arr;
+      }
+
+      function updateStats() {
+        const totalSessions = races.length;
+        const raceSessions = races.filter(r => r.sessionType === "Race");
+        const totalRaces = raceSessions.length;
+        const wins = raceSessions.filter(r => r.finishPos === 1).length;
+        const podiums = raceSessions.filter(
+          r => typeof r.finishPos === "number" && r.finishPos > 0 && r.finishPos <= 3
+        ).length;
+
+        statTotalSessions.textContent = `${totalSessions} session${totalSessions === 1 ? "" : "s"}`;
+        statTotalRaces.textContent = totalRaces;
+        statWins.textContent = wins;
+        statPodiums.textContent = `${podiums} podium${podiums === 1 ? "" : "s"}`;
+
+        // best lap (all-time over all sessions)
+        let best = null;
+        let bestRace = null;
+        for (const r of races) {
+          const sec = parseLapTimeToSeconds(r.bestLap);
+          if (sec === null) continue;
+          if (best === null || sec < best) {
+            best = sec;
+            bestRace = r;
+          }
+        }
+
+        if (best === null || !bestRace) {
+          statBestLap.textContent = "–";
+          statBestLapTrack.textContent = "No laps logged yet";
+        } else {
+          statBestLap.textContent = formatLapTime(bestRace.bestLap);
+          statBestLapTrack.textContent = `${bestRace.track || "Unknown"} (${bestRace.car || "car?"})`;
+        }
+      }
+
+      function refreshUI() {
+        sessionCountSpan.textContent = races.length;
+
+        const filtered = applyFilters(races);
+        const sorted = applySort(filtered);
+
+        // table
+        tbody.innerHTML = "";
+        if (sorted.length === 0) {
+          emptyState.style.display = "block";
+        } else {
+          emptyState.style.display = "none";
+        }
+
+        for (const r of sorted) {
+          const tr = document.createElement("tr");
+
+          const dateTd = document.createElement("td");
+          dateTd.textContent = formatDateDisplay(r.date);
+          tr.appendChild(dateTd);
+
+          const typeTd = document.createElement("td");
+          const typeTag = document.createElement("span");
+          typeTag.className = "tag";
+          typeTag.textContent = r.sessionType || "–";
+          typeTd.appendChild(typeTag);
+          tr.appendChild(typeTd);
+
+          const seriesTd = document.createElement("td");
+          seriesTd.textContent = r.series || "–";
+          tr.appendChild(seriesTd);
+
+          const carTd = document.createElement("td");
+          carTd.textContent = r.car || "–";
+          tr.appendChild(carTd);
+
+          const trackTd = document.createElement("td");
+          trackTd.textContent = r.track || "–";
+          tr.appendChild(trackTd);
+
+          const splitTd = document.createElement("td");
+          splitTd.textContent = r.split != null ? r.split : "–";
+          tr.appendChild(splitTd);
+
+          const sofTd = document.createElement("td");
+          sofTd.textContent = r.sof != null ? r.sof : "–";
+          tr.appendChild(sofTd);
+
+          const startTd = document.createElement("td");
+          startTd.textContent = r.startPos != null ? r.startPos : "–";
+          tr.appendChild(startTd);
+
+          const finishTd = document.createElement("td");
+          finishTd.textContent = r.finishPos != null ? r.finishPos : "–";
+          tr.appendChild(finishTd);
+
+          const bestLapTd = document.createElement("td");
+          bestLapTd.textContent = r.bestLap ? formatLapTime(r.bestLap) : "–";
+          tr.appendChild(bestLapTd);
+
+          const irTd = document.createElement("td");
+          if (typeof r.iratingChange === "number") {
+            const value = r.iratingChange;
+            irTd.textContent = value > 0 ? `+${value}` : `${value}`;
+            irTd.style.color = value > 0 ? "var(--success)" : value < 0 ? "var(--danger)" : "inherit";
+          } else {
+            irTd.textContent = "–";
+          }
+          tr.appendChild(irTd);
+
+          const notesTd = document.createElement("td");
+          notesTd.className = "cell-notes";
+          notesTd.textContent = r.notes || "";
+          tr.appendChild(notesTd);
+
+          const actionsTd = document.createElement("td");
+          const editBtn = document.createElement("button");
+          editBtn.type = "button";
+          editBtn.className = "secondary";
+          editBtn.textContent = "Edit";
+          editBtn.style.fontSize = "11px";
+          editBtn.addEventListener("click", () => handleEdit(r.id));
+
+          const deleteBtn = document.createElement("button");
+          deleteBtn.type = "button";
+          deleteBtn.className = "secondary";
+          deleteBtn.textContent = "Del";
+          deleteBtn.style.fontSize = "11px";
+          deleteBtn.style.borderColor = "rgba(255,76,76,0.4)";
+          deleteBtn.style.color = "#ff8a8a";
+          deleteBtn.addEventListener("click", () => handleDelete(r.id));
+
+          actionsTd.appendChild(editBtn);
+          actionsTd.appendChild(deleteBtn);
+          tr.appendChild(actionsTd);
+
+          tbody.appendChild(tr);
+        }
+
+        tableFooterLabel.textContent = `${sorted.length} session${sorted.length === 1 ? "" : "s"} visible`;
+        updateStats();
+        updateSortHeaderIndicators();
+      }
+
+      function updateSortHeaderIndicators() {
+        const ths = document.querySelectorAll("thead th.sortable");
+        ths.forEach(th => {
+          th.classList.remove("sort-asc", "sort-desc");
+          const field = th.getAttribute("data-sort");
+          if (field === currentSort.field) {
+            th.classList.add(currentSort.direction === "asc" ? "sort-asc" : "sort-desc");
+          }
+        });
+      }
+
+      function handleHeaderClick(event) {
+        const th = event.target.closest("th.sortable");
+        if (!th) return;
+        const field = th.getAttribute("data-sort");
+        if (!field) return;
+        if (currentSort.field === field) {
+          currentSort.direction = currentSort.direction === "asc" ? "desc" : "asc";
+        } else {
+          currentSort.field = field;
+          currentSort.direction = field === "date" ? "desc" : "asc";
+        }
+        refreshUI();
+        syncSortPresetWithCurrent();
+      }
+
+      function syncSortPresetWithCurrent() {
+        const { field, direction } = currentSort;
+        let value = "date-desc";
+        if (field === "date" && direction === "desc") value = "date-desc";
+        else if (field === "date" && direction === "asc") value = "date-asc";
+        else if (field === "bestLap" && direction === "asc") value = "bestLap-asc";
+        else if (field === "finishPos" && direction === "asc") value = "finishPos-asc";
+        else if (field === "iratingChange" && direction === "desc") value = "iratingChange-desc";
+        filterSortPreset.value = value;
+      }
+
+      function handleSortPresetChange() {
+        const value = filterSortPreset.value;
+        switch (value) {
+          case "date-desc":
+            currentSort = { field: "date", direction: "desc" };
+            break;
+          case "date-asc":
+            currentSort = { field: "date", direction: "asc" };
+            break;
+          case "bestLap-asc":
+            currentSort = { field: "bestLap", direction: "asc" };
+            break;
+          case "finishPos-asc":
+            currentSort = { field: "finishPos", direction: "asc" };
+            break;
+          case "iratingChange-desc":
+            currentSort = { field: "iratingChange", direction: "desc" };
+            break;
+        }
+        refreshUI();
+      }
+
+      function initDefaultDate() {
+        if (!dateInput.value) {
+          const today = new Date();
+          const iso = today.toISOString().slice(0, 10);
+          dateInput.value = iso;
+        }
+      }
+
+      // Event wiring
+      document.addEventListener("DOMContentLoaded", () => {
+        loadFromStorage();
+        initDefaultDate();
+        refreshUI();
+
+        form.addEventListener("submit", handleFormSubmit);
+        resetFormBtn.addEventListener("click", clearForm);
+        clearAllBtn.addEventListener("click", handleClearAll);
+        exportBtn.addEventListener("click", handleExport);
+        importBtn.addEventListener("click", handleImport);
+
+        filterSearch.addEventListener("input", refreshUI);
+        filterSession.addEventListener("change", refreshUI);
+        filterSortPreset.addEventListener("change", handleSortPresetChange);
+
+        const head = document.querySelector("thead");
+        if (head) {
+          head.addEventListener("click", handleHeaderClick);
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
